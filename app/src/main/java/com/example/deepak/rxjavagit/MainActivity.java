@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<Contact>() {
             @Override
             public void accept(Contact contact) throws Exception {
-                Log.e("contacts", contact.getContacts().get(0).getPhone() + "");
+                Log.e("contacts are", contact.getContacts().get(0).getPhone().getMobile() + "");
             }
         }, new Consumer<Throwable>() {
             @Override

@@ -1,16 +1,17 @@
 package com.example.deepak.rxjavagit.modules.activities;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.example.deepak.rxjavagit.R;
 import com.example.deepak.rxjavagit.di.component.DaggerContactComponent;
+import com.example.deepak.rxjavagit.di.module.ContactModule;
 import com.example.deepak.rxjavagit.mvp.presenter.ContactPresenter.ContactsPresenter;
 import com.example.deepak.rxjavagit.mvp.view.ContactsView;
 
 import javax.inject.Inject;
 
-public class ContactActivity extends AppCompatActivity implements ContactsView {
+public class ContactActivity extends BaseActivity implements ContactsView {
     @Inject
     protected ContactsPresenter mPresenter;
 
@@ -23,6 +24,20 @@ public class ContactActivity extends AppCompatActivity implements ContactsView {
     }
 
     private void reolveDependencies() {
-        DaggerContactComponent.builder();
+        DaggerContactComponent.builder().applicationComponent(getApplicationComponent()).contactModule(new ContactModule(this)).build().inject(this);
+    }
+
+    @Override
+    public void showProgress() {
+        showProgressDialog("Loading");
+    }
+    @Override
+    public void hideProgress() {
+        hideProgressDialog();
+    }
+
+    @Override
+    public void showMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 }

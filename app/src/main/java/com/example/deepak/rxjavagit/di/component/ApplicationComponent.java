@@ -18,7 +18,7 @@ import retrofit2.Retrofit;
 @Component(modules = ApplicationModule.class)
 public interface ApplicationComponent {
 
-    void applyInjection(ContactApplication contactApplication);
+   // void applyInjection(ContactApplication contactApplication);
 
     Retrofit exposeRetrofit();
 

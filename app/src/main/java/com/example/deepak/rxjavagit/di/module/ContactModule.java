@@ -16,7 +16,7 @@ import retrofit2.Retrofit;
 public class ContactModule {
     ContactsView mContactsView;
 
-    ContactModule(ContactsView mContactsView){
+    public ContactModule(ContactsView mContactsView){
         this.mContactsView=mContactsView;
     }
 

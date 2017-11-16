@@ -5,4 +5,9 @@ package com.example.deepak.rxjavagit.mvp.view;
  */
 
 public interface ContactsView extends BaseView {
+    void showProgress();
+
+    void hideProgress();
+
+    void showMessage(String message);
 }
